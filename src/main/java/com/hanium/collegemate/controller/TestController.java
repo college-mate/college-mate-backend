@@ -10,6 +10,6 @@ public class TestController {
 
     @PostMapping("/test")
     public String test(){
-        return "Test Complete";
+        return "Test Completejh_test";
     }
 }
