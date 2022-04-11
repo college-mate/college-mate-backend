@@ -40,7 +40,7 @@ public class UserDetailService implements UserDetailsService {
                         "ROLE_"+role
                 )).collect(Collectors.toSet())
         );
-        userDTO.setName(user.getName());
+       // userDTO.setName(user.getName());
         userDTO.setEmail(user.getEmail());
 
         return userDTO;

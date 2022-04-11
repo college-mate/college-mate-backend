@@ -11,16 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/test/register")
+    @PostMapping("/join")
     public void testRegister(UserDTO user) {
-        log.info("==================USERCONTROLLER==================");
+        log.info("========컨트롤러 부분============");
         log.info(user.toString());
-        userService.testRegister(user);
+        log.info("========값 정상 입력============");
+        log.info("========유저 서비스로 값 전송============");
+        userService.userJoin(user);
     }
 
 

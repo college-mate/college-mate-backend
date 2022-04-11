@@ -11,22 +11,33 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+
+
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public void testRegister(UserDTO dto){
-        log.info("============SERVICE============");
+
+    public void userJoin(UserDTO dto){
+        log.info("============유저 서비스 부분============");
         log.info(dto.toString());
-
+        log.info("============정상 출력============");
         //암호화 작업
+        dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+        log.info("============암호화 후 비밀번호============");
+        log.info(dto.getPassword());
+        // Entity에 삽입해주기
         User newUser = new User();
-        newUser.setEmail(dto.getEmail());
         newUser.setId(dto.getId());
-        newUser.setName(dto.getName());
         newUser.setPassword(dto.getPassword());
-
-        userRepository.save(newUser);
+        newUser.setNickName(dto.getNickName());
+        newUser.setEmail(dto.getEmail());
+        newUser.setCollegeName(dto.getCollegeName());
+        newUser.setPhone(dto.getPhone());
+        newUser.setProfileImage(dto.getProfileImage());
+        // DB에 저장
+       userRepository.save(newUser);
 
     }
 

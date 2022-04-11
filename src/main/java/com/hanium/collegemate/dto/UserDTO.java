@@ -2,6 +2,8 @@ package com.hanium.collegemate.dto;
 
 import lombok.*;
 
+import javax.persistence.Id;
+
 
 @Getter
 @Setter
@@ -13,8 +15,14 @@ public class UserDTO {
 
     private String password;
 
-    private String name;
+    private String nickName;
 
     private String email;
+
+    private String collegeName;
+
+    private String phone;
+
+    private String profileImage;
 
 }

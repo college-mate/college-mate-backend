@@ -22,9 +22,16 @@ public class User {
 
     private String password;
 
-    private String name;
+    private String nickName;
 
     private String email;
+
+    private String collegeName;
+
+    private String phone;
+
+    private String profileImage;
+
 
 
 
