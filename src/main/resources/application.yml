@@ -3,6 +3,7 @@ spring:
     include:
       - dev
       #- security
+
   jpa:
     show-sql: true
     properties:
