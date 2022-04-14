@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserJoinOK {
-    public String Respone;
+     public String Respone;
 }
