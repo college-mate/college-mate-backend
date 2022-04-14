@@ -45,6 +45,7 @@ public class UserService {
                 log.info(validatorResult.toString());
                 log.info("========오류발생============");
             }
+            throw new UserValidationException("유효성 검사 실패", validatorResult);
         }
         else {
             log.info("============유저 서비스 부분============");
