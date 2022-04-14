@@ -5,6 +5,7 @@ import com.hanium.collegemate.dto.UserDTO;
 import com.hanium.collegemate.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,8 +23,7 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
-
+@RestController
 public class UserService {
 
     private final UserRepository userRepository;
@@ -38,7 +41,8 @@ public class UserService {
         return validatorResult;
     }
 
-    public void userJoin(UserDTO dto,Errors errors){
+
+    public void userJoin(UserDTO dto, Errors errors) {
         if (errors.hasErrors()) {
             Map<String, String> validatorResult = validateHandling(errors);
             for (String key : validatorResult.keySet()) {
@@ -46,8 +50,7 @@ public class UserService {
                 log.info("========오류발생============");
             }
             throw new UserValidationException("유효성 검사 실패", validatorResult);
-        }
-        else {
+        } else {
             log.info("============유저 서비스 부분============");
             log.info(dto.toString());
             log.info("============정상 출력============");
@@ -64,9 +67,24 @@ public class UserService {
             newUser.setCollegeName(dto.getCollegeName());
             newUser.setPhone(dto.getPhone());
             newUser.setProfileImage(dto.getProfileImage());
+
+            // Front로 Json값 전달
+            JoinOk();
             // DB에 저장
             userRepository.save(newUser);
+
+
+
         }
     }
 
+
+    @ResponseBody
+    public Object JoinOk(){
+        UserJoinOK OK = new UserJoinOK();
+        OK.Respone = "OK";
+        log.info("OK 반환되라고");
+        return OK;
+    }
 }
+
