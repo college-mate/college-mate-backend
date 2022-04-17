@@ -86,6 +86,8 @@ public class UserService {
             newUser.setProfileImage(dto.getProfileImage());
 
 
+            newUser.addUserRole(EUserRole.USER);
+
             // DB에 저장
             userRepository.save(newUser);
 
