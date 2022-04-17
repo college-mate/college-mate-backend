@@ -29,6 +29,15 @@ public class UserController {
     public ResponseEntity<String> join(@Valid UserDTO user, Errors errors) {
         return userService.userJoin(user, errors);
     }
-
+// 중복 체크 부분
+    @PostMapping("/join/{email}/emailcheck")
+    public ResponseEntity<Boolean> checkEmail(@PathVariable String email){
+        return ResponseEntity.ok(userService.checkEmail(email));
+    }
+    // 중복 체크 부분
+    @PostMapping("/join/{id}/idcheck")
+    public ResponseEntity<Boolean> checkId(@PathVariable String id){
+        return ResponseEntity.ok(userService.checkId(id));
+    }
 
 }

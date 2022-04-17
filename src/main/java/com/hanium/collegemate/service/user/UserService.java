@@ -42,6 +42,15 @@ public class UserService {
         return validatorResult;
     }
 
+    //회원가입 중복 체크 기능
+
+    public boolean checkId(String id){
+        return userRepository.existsById(id);
+    }
+
+    public boolean checkEmail(String email){
+        return userRepository.existsByEmail(email);
+    }
 
     public ResponseEntity<String> userJoin(UserDTO dto, Errors errors) {
         if (errors.hasErrors()) {
