@@ -85,8 +85,9 @@ public class UserService {
             newUser.setPhone(dto.getPhone());
             newUser.setProfileImage(dto.getProfileImage());
 
-
+            //준형이가 넣으라고 한거
             newUser.addUserRole(EUserRole.USER);
+
 
             // DB에 저장
             userRepository.save(newUser);
