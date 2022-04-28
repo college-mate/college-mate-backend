@@ -45,10 +45,13 @@ public class UserService {
     //회원가입 중복 체크 기능
 
     public boolean checkId(String id){
+        log.info(id);
         return userRepository.existsById(id);
     }
 
     public boolean checkEmail(String email){
+
+        log.info(email);
         return userRepository.existsByEmail(email);
     }
 
@@ -95,6 +98,7 @@ public class UserService {
             // Front로 Json값 전달
             UserJoinOK Ok = new UserJoinOK();
             Ok.Respone = "Ok";
+
             return new ResponseEntity<>("{\"response\": \"" + Ok.Respone + "\"}", HttpStatus.OK);
 
         }
