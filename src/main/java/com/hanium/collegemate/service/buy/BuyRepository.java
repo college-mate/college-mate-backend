@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface BuyRepository extends JpaRepository<Buy, Long> {
+public interface BuyRepository extends JpaRepository<Buy, Integer> {
 
     //boolean existsByTitle(String title);
     //boolean existsByContent(String content);

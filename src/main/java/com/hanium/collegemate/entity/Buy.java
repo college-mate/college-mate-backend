@@ -18,6 +18,9 @@ import java.util.Set;
 
 public class Buy {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int idx;
+
     private String title;
     private String work;
     private String job;
@@ -26,5 +29,14 @@ public class Buy {
     private String term;
     private int point;
     private String date;
+
+    public void update(String title,String content,String job,int point,String term,String work){
+        this.title = title;
+        this.content = content;
+        this.job = job;
+        this.point = point;
+        this.term = term;
+        this.work = work;
+    }
 
 }

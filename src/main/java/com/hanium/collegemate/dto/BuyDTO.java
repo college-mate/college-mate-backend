@@ -18,6 +18,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 public class BuyDTO {
 
+    private int idx;
     private String title;
     private String work;
     private String job;
@@ -28,6 +29,7 @@ public class BuyDTO {
     private String date;
 
     public BuyDTO(Buy entity){
+        this.idx = entity.getIdx();
         this.title = entity.getTitle();
         this.work = entity.getWork();
         this.job = entity.getJob();

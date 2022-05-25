@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public class BuyListResponseDTO {
 
+    private int idx;
     private String title;
     private String work;
     private String job;
@@ -15,7 +16,9 @@ public class BuyListResponseDTO {
     private int point;
     private String date;
 
+
     public BuyListResponseDTO(Buy entity){
+        this.idx = entity.getIdx();
         this.title = entity.getTitle();
         this.work = entity.getWork();
         this.job = entity.getJob();
